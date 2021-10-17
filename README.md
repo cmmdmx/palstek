@@ -1,8 +1,41 @@
-# palstek
-A bunch of useful extensions for react projects
+
+```
+______     _     _       _      
+| ___ \   | |   | |     | |     
+| |_/ /_ _| |___| |_ ___| | __  
+|  __/ _` | / __| __/ _ \ |/ /  
+| | | (_| | \__ \ ||  __/   < _ 
+\_|  \__,_|_|___/\__\___|_|\_(_)
+                                
+                              
+>> Palstek - a bunch of useful extensions for react projects.
+```
+
+
+
+# Overview
+
+- [Overview](#overview)
+- [Intro](#intro)
+  - [Quick Start](#quick-start)
+- [Reference](#reference)
+  - [utils](#utils)
+    - [resolveClassNames](#resolveclassnames)
+    - [filterProps](#filterprops)
+    - [autoFilterProps](#autofilterprops)
+- [Future Plans](#future-plans)
+- [Contribution](#contribution)
 
 ---
 
+# Intro
+
+Why "palstek"? - Because this is one of the most used knots on a sailboat. Just as useful, selected functions should be provided here. Especially designed as extension to functional react projects, react libraries and design systems.
+
+## Quick Start
+
+1. Install the package with `npm i palstek` into your project
+2. Use the functions. They support typescript.
 
 # Reference
 
@@ -65,6 +98,10 @@ The `autoFilterProps` will automatically remove all members of the props object 
 - match
 
 ---
+
+# Future Plans
+
+- Include the possibility to only install single functions instead of the whole package, like `npm i palstek/resolveClassNames`.
 
 # Contribution
 
