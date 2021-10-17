@@ -1,0 +1,26 @@
+{
+  "name": "palstek",
+  "version": "0.1.0",
+  "description": "A bunch of useful extensions for react projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmmdmx/palstek.git"
+  },
+  "keywords": [
+    "react",
+    "utils",
+    "javascript",
+    "typescript",
+    "library"
+  ],
+  "author": "@cmmdmx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmmdmx/palstek/issues"
+  },
+  "homepage": "https://github.com/cmmdmx/palstek#readme"
+}
