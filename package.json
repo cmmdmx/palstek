@@ -12,7 +12,7 @@
     "test": "ava",
     "lint": "eslint",
     "check": "tsc --noEmit",
-    "publish": "npm run lint && npm run check && npm run build && np"
+    "pub": "npm run lint && npm run check && npm run build && np"
   },
   "repository": {
     "type": "git",
