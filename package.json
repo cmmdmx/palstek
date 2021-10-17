@@ -6,9 +6,6 @@
   "module": "dist/index.module.js",
   "types": "dist/types.d.ts",
   "source": "src/index.ts",
-  "files": [
-    "dist/"
-  ],
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",

@@ -1,0 +1,8 @@
+node_modules/
+src/
+.parcel-cache/
+.eslintrc.json
+.gitignore
+.np-config.json
+package-lock.json
+tsconfig.json
