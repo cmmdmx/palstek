@@ -6,10 +6,14 @@
   "module": "dist/index.module.js",
   "types": "dist/types.d.ts",
   "source": "src/index.ts",
+  "files": ["dist/"],
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "test": "ava"
+    "test": "ava",
+    "lint": "eslint",
+    "check": "tsc --noEmit",
+    "publish": "npm run lint && npm run check && npm test && npm run build && np"
   },
   "repository": {
     "type": "git",
@@ -36,20 +40,27 @@
     "eslint": "^8.0.1",
     "eslint-plugin-ava": "^13.0.0",
     "eslint-plugin-react": "^7.26.1",
+    "np": "^7.5.0",
     "parcel": "^2.0.0",
+    "ts-node": "^10.3.0",
     "typescript": "^4.4.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
     "node": ">= 12"
   },
+  "external": [
+    "@swc/helpers"
+  ],
   "ava": {
-		"extensions": [
-			"ts"
-		],
-		"require": [
-			"ts-node/register"
-		],
-    "ava/no-ignored-test-files": ["error"]
-	}
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "ava/no-ignored-test-files": [
+      "error"
+    ]
+  }
 }
