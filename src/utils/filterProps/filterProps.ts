@@ -1,6 +1,5 @@
-export type PropsType = Record<string, unknown>;
 
-export const filterProps = <T extends PropsType, K extends Array<keyof T>>(props?: T, ...filter: K): Exclude<T, K> | PropsType => {
+export const filterProps = <T, K extends Array<keyof T>>(props?: T, ...filter: K): Exclude<T, K> | Partial<T> => {
     if(!props) return {};
     if(!filter || filter.length === 0) return props;
 
@@ -13,7 +12,7 @@ export const filterProps = <T extends PropsType, K extends Array<keyof T>>(props
 
 const defaults = ["history", "location", "match"];
 
-export const autoFilterProps = <T extends PropsType, K extends Array<keyof T>>(props?: T, ...filter: K): Exclude<T, K> | PropsType => {
+export const autoFilterProps = <T, K extends Array<keyof T>>(props?: T, ...filter: K): Exclude<T, K> | Partial<T> => {
     if(!props) return {};
 
     return Object.keys(props)
