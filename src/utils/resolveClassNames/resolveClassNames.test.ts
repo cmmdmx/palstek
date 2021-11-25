@@ -24,3 +24,11 @@ test("conditional class names", t => {
 test("no class names", t => {
     t.is(resolveClassNames(), "");
 });
+
+test("undefined", t => {
+    t.is(resolveClassNames(undefined, "hi"), "hi");
+});
+
+test("number", t => {
+    t.is(resolveClassNames(1 as unknown as string, "hi"), "hi");
+});

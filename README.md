@@ -23,8 +23,11 @@ ______     _     _       _
     - [resolveClassNames](#resolveclassnames)
     - [filterProps](#filterprops)
     - [autoFilterProps](#autofilterprops)
+  - [static](#static)
+    - [reset.css](#resetcss)
 - [Future Plans](#future-plans)
 - [Contribution](#contribution)
+- [Credits](#credits)
 
 ---
 
@@ -99,6 +102,16 @@ The `autoFilterProps` will automatically remove all members of the props object 
 
 ---
 
+
+
+
+
+## static
+
+### reset.css
+
+This lightweight reset.css can be imported at first in every project to do some helpful normalizings to your project's styling. 
+
 # Future Plans
 
 - Include the possibility to only install single functions instead of the whole package, like `npm i palstek/resolveClassNames`.
@@ -106,5 +119,10 @@ The `autoFilterProps` will automatically remove all members of the props object 
 # Contribution
 
 If you want to contribute, feel free to do so. Just create your own branch and submit a PR with the changes.
+
+# Credits
+
+Credits go to:
+- https://www.joshwcomeau.com/css/custom-css-reset/ and https://piccalil.li/blog/a-modern-css-reset/ for inspiration on reset.css
 
 `Made with ❤ by @cmmdmx`
