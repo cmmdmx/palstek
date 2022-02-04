@@ -21,6 +21,7 @@ ______     _     _       _
 - [Reference](#reference)
   - [utils](#utils)
     - [resolveClassNames](#resolveclassnames)
+    - [getRandomString](#getRandomString)
     - [filterProps](#filterprops)
     - [autoFilterProps](#autofilterprops)
   - [static](#static)
@@ -56,6 +57,15 @@ This function is here to help. Use it in your components like:
 ```
 
 It will automatically filter out undefineds & falsy values. All valid strings are joined together to get valid multi-classNames. Also works with string arrays and css modules.
+
+
+### getRandomString
+
+Get a string of random letters and numbers with a length, default is 5.
+
+```jsx
+    const randomString = getRandomString(7); // will for example create '3udzdaf'
+```
 
 
 ### filterProps
