@@ -1,4 +1,10 @@
 
+/**
+ * filter an js object of props by listing keys. T is the Object, K is a subset of keys of Object T.
+ * @param {T} props?
+ * @param {K} ...filter
+ * @returns {object}
+ */
 export const filterProps = <T, K extends Array<keyof T>>(props?: T, ...filter: K): Exclude<T, K> | Partial<T> => {
     if(!props) return {};
     if(!filter || filter.length === 0) return props;
@@ -12,6 +18,12 @@ export const filterProps = <T, K extends Array<keyof T>>(props?: T, ...filter: K
 
 const defaults = ["history", "location", "match"];
 
+/**
+ * filter an js object of props by listing keys. T is the Object, K is a subset of keys of Object T. Automatically filters all keys with an underscore as well as "history", "location", "match"
+ * @param {T} props?
+ * @param {K} ...filter
+ * @returns {object}
+ */
 export const autoFilterProps = <T, K extends Array<keyof T>>(props?: T, ...filter: K): Exclude<T, K> | Partial<T> => {
     if(!props) return {};
 
