@@ -1,6 +1,6 @@
 {
   "name": "palstek",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A bunch of useful extensions for react projects",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
