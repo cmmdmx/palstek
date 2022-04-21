@@ -24,8 +24,11 @@ ______     _     _       _
     - [getRandomString](#getRandomString)
     - [filterProps](#filterprops)
     - [autoFilterProps](#autofilterprops)
+    - [stringTransform](#stringTransform)
   - [static](#static)
     - [reset.css](#resetcss)
+  - [hooks](#hooks)
+    - [usePrevious](#usePrevious)
 - [Future Plans](#future-plans)
 - [Contribution](#contribution)
 - [Credits](#credits)
@@ -110,10 +113,21 @@ The `autoFilterProps` will automatically remove all members of the props object 
 - location
 - match
 
+
+### stringTransform
+
+This function collection is useful to transform strings in several common targets, such as to "kebab-case", "camelCase" and "PascalCase".
+Example: 
+
+```tsx
+
+const myString = "some-kebab-string";
+
+const newString = stringTransform.toCamelCase(myString); // newString will be "someKebabString"
+
+```
+
 ---
-
-
-
 
 
 ## static
@@ -121,6 +135,22 @@ The `autoFilterProps` will automatically remove all members of the props object 
 ### reset.css
 
 This lightweight reset.css can be imported at first in every project to do some helpful normalizings to your project's styling. 
+
+## hooks
+
+### usePrevious
+
+Get access to a state's previous value. This can be helpful to implement a simple undo or to compare old and new values.
+
+Example:
+
+```tsx
+// inside a React Component
+
+const [count, setCount] = useState(0); 
+const previousCount = usePrevious(count); // will always be the previous value, like a "history - 1"
+
+```
 
 # Future Plans
 
