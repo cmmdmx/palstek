@@ -23,3 +23,11 @@ test("test two strings not the same", t => {
 
     t.not(strA, strB);
 });
+
+test("test long string", t => {
+    const strA = getRandomString(24);
+    const strB = getRandomString(64);
+
+    t.is(strA.length, 24);
+    t.is(strB.length, 64);
+});

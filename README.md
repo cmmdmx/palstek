@@ -127,6 +127,10 @@ const newString = stringTransform.toCamelCase(myString); // newString will be "s
 
 ```
 
+All functions support special characters (from languages like German or French).
+
+Both functions `toCamelCase` and `toPascalCase` replace the characters `-`, `_`, and whitespace by default, but you can pass your own Regexp as optional parameter to modify the function to also replace a `.` or a `,` for example.
+
 ---
 
 

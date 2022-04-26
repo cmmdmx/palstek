@@ -4,5 +4,7 @@
  * @returns {string}
  */
 export const getRandomString = (length = 5): string => {
-    return Math.random().toString(36).slice(2, 2 + length);
+    const part = () => (Math.random()).toString(36).slice(2, 10);
+
+    return new Array(Math.ceil(length / 8)).fill("").map(() => part()).join("").slice(0, length);
 };
