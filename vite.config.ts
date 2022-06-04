@@ -2,10 +2,13 @@ import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-module.exports = defineConfig({
-    plugins:   [react()],
-    publicDir: path.resolve(__dirname, "src/static"),
-    build:     {
+export default defineConfig({
+    plugins:      [react()],
+    publicDir:    path.resolve(__dirname, "src/static"),
+    optimizeDeps: {
+        include: ["ava"]
+    },
+    build: {
         minify:      true,
         sourcemap:   true,
         emptyOutDir: true,

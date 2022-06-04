@@ -32,6 +32,7 @@
   "exclude": [
     "node_modules/",
     "vite.config.ts",
-    "./src/lib/components/*/**/*.stories.tsx"
+    "./src/lib/components/*/**/*.stories.tsx",
+    "**.test.ts"
   ]
 }

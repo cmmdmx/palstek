@@ -16,7 +16,7 @@
   },
   "source": "src/index.ts",
   "scripts": {
-    "build": "tsc --build && vite build && tsc",
+    "build": "tsc --project tsconfig.build.json && vite build && tsc",
     "test": "ava",
     "lint": "eslint",
     "pub": "npm run lint && npm run build && np"
@@ -32,6 +32,7 @@
     "typescript",
     "library"
   ],
+  "type": "module",
   "author": "@cmmdmx",
   "license": "ISC",
   "bugs": {
@@ -59,11 +60,18 @@
     "react": "^17.0.2 || ^18.0.0"
   },
   "ava": {
-    "extensions": [
-      "ts"
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--experimental-specifier-resolution=node"
     ],
     "require": [
-      "ts-node/register"
+      "ts-node/register/transpile-only"
+    ],
+    "files": [
+      "src/**/*.test.ts"
     ]
   },
   "staticFiles": {
