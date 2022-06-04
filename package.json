@@ -2,17 +2,24 @@
   "name": "palstek",
   "version": "0.5.2",
   "description": "A bunch of useful extensions for react projects",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "types": "dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/palstek.umd.js",
+  "module": "dist/palstek.es.js",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/palstek.es.js",
+      "require": "./dist/palstek.umd.js"
+    }
+  },
   "source": "src/index.ts",
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build",
+    "build": "tsc --build && vite build && tsc",
     "test": "ava",
     "lint": "eslint",
-    "check": "tsc --noEmit",
-    "pub": "npm run lint && npm run check && npm run build && np"
+    "pub": "npm run lint && npm run build && np"
   },
   "repository": {
     "type": "git",
@@ -32,19 +39,17 @@
   },
   "homepage": "https://github.com/cmmdmx/palstek#readme",
   "devDependencies": {
-    "@parcel/packager-ts": "^2.6.0",
-    "@parcel/transformer-typescript-types": "^2.6.0",
     "@types/react": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@vitejs/plugin-react": "^1.3.2",
     "ava": "^4.3.0",
     "eslint": "^8.17.0",
     "eslint-plugin-ava": "^13.2.0",
     "eslint-plugin-react": "^7.30.0",
     "np": "^7.6.1",
-    "parcel": "^2.6.0",
-    "parcel-reporter-static-files-copy": "^1.3.4",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "vite": "^2.9.9"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
@@ -59,9 +64,6 @@
     ],
     "require": [
       "ts-node/register"
-    ],
-    "ava/no-ignored-test-files": [
-      "error"
     ]
   },
   "staticFiles": {
