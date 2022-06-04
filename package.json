@@ -12,7 +12,8 @@
     ".": {
       "import": "./dist/palstek.es.js",
       "require": "./dist/palstek.umd.js"
-    }
+    },
+    "./dist/reset.css": "./dist/reset.css"
   },
   "source": "src/index.ts",
   "scripts": {
