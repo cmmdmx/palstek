@@ -20,7 +20,7 @@
       "skipLibCheck": false,
       "sourceMap": true,
       "strict": true,
-      "target": "ESNext",
+      "target": "ES5",
       "types": [],
       "useDefineForClassFields": true,
   },

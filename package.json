@@ -10,12 +10,10 @@
   "typings": "dist/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/palstek.cjs.js",
       "import": "./dist/palstek.es.js",
       "require": "./dist/palstek.cjs.js",
-      "browser": {
-        "default": "./dist/palstek.umd.js"
-      }
+      "browser":"./dist/palstek.umd.js",
+      "default": "./dist/palstek.cjs.js"
     },
     "./dist/reset.css": "./dist/reset.css"
   },
