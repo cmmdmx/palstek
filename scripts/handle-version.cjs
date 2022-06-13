@@ -14,7 +14,11 @@ rl.question(`Type of new version: ${allowed.join(" | ")}\nversion: `, (res) => {
     if (allowed.includes(res)) {
         exec(`npm version ${res}`, (err, stdout, stderr) => {
             console.log(stdout);
-            console.error(stderr);
+
+            if (stderr) {
+                console.error(stderr);
+                throw Error("Error increasing version, cancelling...");
+            }
         });
         rl.close();
     }
