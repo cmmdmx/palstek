@@ -24,7 +24,7 @@
         "@typescript-eslint",
         "ava"
     ],
-    "ignorePatterns": ["dist/*"],
+    "ignorePatterns": ["dist/*", "scripts/*"],
     "rules": {
         "strict": [
           2
