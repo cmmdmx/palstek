@@ -10,14 +10,14 @@ export default defineConfig({
     },
     build: {
         minify:      true,
-        sourcemap:   true,
+        sourcemap:   false,
         emptyOutDir: true,
         outDir:      path.resolve(__dirname, "dist"),
         lib:         {
             entry:    path.resolve(__dirname, "src/index.ts"),
             name:     "palstek",
-            formats:  ["es", "cjs", "umd"],
-            fileName: format => `palstek.${format}.js`
+            formats:  ["es", "umd"],
+            fileName: format => `index.${format}.js`
         },
         rollupOptions: {
             external: ["react"],
@@ -27,13 +27,12 @@ export default defineConfig({
                 globals: {
                     react: "React"
                 },
-                sourcemap:               true,
+                sourcemap:               false,
                 sourcemapExcludeSources: true
             }
         },
         commonjsOptions: {
-            transformMixedEsModules: true,
-            sourceMap:               true
+            sourceMap: false
         }
     }
 });

@@ -3,26 +3,27 @@
   "version": "0.6.2-1",
   "description": "A bunch of useful extensions for react projects",
   "files": [
-    "dist"
+    "./dist/"
   ],
-  "main": "./dist/palstek.cjs.js",
-  "module": "dist/palstek.es.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/palstek.es.js",
-      "require": "./dist/palstek.cjs.js",
-      "browser": "./dist/palstek.umd.js",
-      "default": "./dist/palstek.cjs.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "browser": "./dist/index.umd.js",
+      "default": "./dist/index.umd.js"
     },
     "./dist/reset.css": "./dist/reset.css"
   },
   "source": "src/index.ts",
   "scripts": {
-    "build": "tsc --project tsconfig.build.json && vite build && tsc",
+    "pkg-json": "node scripts/create-pkg-json.cjs",
+    "build": "tsc --project tsconfig.build.json && vite build && tsc && npm run pkg-json",
     "test": "ava",
     "lint": "eslint",
-    "pub": "npm run lint && npm run build && np"
+    "pub": "npm run lint && npm run build && npm run pkg-json && np"
   },
   "repository": {
     "type": "git",
