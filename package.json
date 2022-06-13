@@ -1,6 +1,6 @@
 {
   "name": "palstek",
-  "version": "0.6.2-0",
+  "version": "0.6.2-1",
   "description": "A bunch of useful extensions for react projects",
   "files": [
     "dist"
@@ -12,7 +12,7 @@
     ".": {
       "import": "./dist/palstek.es.js",
       "require": "./dist/palstek.cjs.js",
-      "browser":"./dist/palstek.umd.js",
+      "browser": "./dist/palstek.umd.js",
       "default": "./dist/palstek.cjs.js"
     },
     "./dist/reset.css": "./dist/reset.css"
