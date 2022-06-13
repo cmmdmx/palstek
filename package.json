@@ -23,7 +23,7 @@
     "build": "tsc --project tsconfig.build.json && vite build && tsc && npm run pkg-json",
     "test": "ava",
     "lint": "eslint",
-    "pub": "npm run lint && npm run build && npm run pkg-json && np"
+    "pub": "npm run lint && npm run build && cd ./dist && npm publish"
   },
   "repository": {
     "type": "git",
