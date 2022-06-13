@@ -5,13 +5,17 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/palstek.umd.js",
+  "main": "./dist/palstek.cjs.js",
   "module": "dist/palstek.es.js",
   "typings": "dist/index.d.ts",
   "exports": {
     ".": {
+      "default": "./dist/palstek.cjs.js",
       "import": "./dist/palstek.es.js",
-      "require": "./dist/palstek.umd.js"
+      "require": "./dist/palstek.cjs.js",
+      "browser": {
+        "default": "./dist/palstek.umd.js"
+      }
     },
     "./dist/reset.css": "./dist/reset.css"
   },
@@ -55,7 +59,7 @@
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14.13.1"
   },
   "peerDependencies": {
     "react": "^17.0.2 || ^18.0.0"
