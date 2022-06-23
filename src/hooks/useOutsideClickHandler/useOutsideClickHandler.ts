@@ -37,7 +37,7 @@ export const useOutsideClickHandler = (_onOutsideClick: () => void = () => {}, c
         return () => {};
     }, [elementRef, condition, onOutsideClick, customListeners]);
 
-    return {
+    return [
         elementRef
-    };
+    ];
 };
