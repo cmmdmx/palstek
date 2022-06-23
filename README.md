@@ -21,14 +21,16 @@ ______     _     _       _
 - [Reference](#reference)
   - [utils](#utils)
     - [resolveClassNames](#resolveclassnames)
-    - [getRandomString](#getRandomString)
+    - [getRandomString](#getrandomstring)
     - [filterProps](#filterprops)
     - [autoFilterProps](#autofilterprops)
-    - [stringTransform](#stringTransform)
+    - [stringTransform](#stringtransform)
   - [static](#static)
     - [reset.css](#resetcss)
   - [hooks](#hooks)
-    - [usePrevious](#usePrevious)
+    - [usePrevious](#useprevious)
+    - [useCssVar](#usecssvar)
+    - [useOutsideClickHandler](#useoutsideclickhandler)
 - [Future Plans](#future-plans)
 - [Contribution](#contribution)
 - [Credits](#credits)
@@ -155,6 +157,65 @@ const [count, setCount] = useState(0);
 const previousCount = usePrevious(count); // will always be the previous value, like a "history - 1"
 
 ```
+
+### useCssVar
+
+Provide local values insider your component's code to CSS as CSS Variable (needs browser support).
+
+Example:
+
+```tsx
+const MyComponent = () => {
+  const [val, setVal] = useCssVar("--my-font-size", "2rem");
+
+  return (
+    <div style={{ fontSize: "var(--my-font-size)" }}>
+        The value: {val}
+        <button onClick={() => setVal(`${parseInt(val) + 1}rem`)}>increase</button>
+    </div>
+  );
+};
+```
+
+Parameters:
+1. Variable name (has to start with '--')
+2. Variable value
+3. optional, an HtmlElement Reference on which to set the variable (default document.body)
+
+Returns (similar to useState):
+1. The value
+2. Setter for the value
+
+### useOutsideClickHandler 
+
+A useful hook to manage "outside" clicks of DOM Elements. Based on React Ref and Event.composedPath.
+This pattern is quite solid and efficient, but does not work as soon as the DOM hierarchy does not represent the visual hierarchy (because of `position: absolute` of sub-elements or similar).
+
+Example:
+
+```tsx
+const MyComponent = () => {
+  const outsideClickHandler = () => {
+    console.log("outside");
+  }
+
+  const [elementRef] = useOutsideClickHandler(outsideClickHandler);
+
+  return (
+    <div ref={elementRef}>
+      Dialog / Modal / Popup / ...
+    </div>
+  );
+};
+```
+
+Parameters:
+1. Your click handler. Will get triggered once an outside click is detected.
+2. A condition (boolean). If false, the listener(s) won't get registered and/or unregistered. Default true.
+3. An optional list of event types, in case you want to listen to additional / other events than "click".
+
+Returns:
+1. elementRef: The ref of the element which has to be inside the `composedPath` of the click(?) event. It's just a passthrough of React.useRef and works identical. Default's `null`.
 
 # Future Plans
 

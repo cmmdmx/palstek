@@ -1,18 +1,30 @@
 {
   "name": "palstek",
-  "version": "0.5.2",
+  "version": "0.8.2",
   "description": "A bunch of useful extensions for react projects",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "types": "dist/types.d.ts",
+  "files": [
+    "./dist/*"
+  ],
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "browser": "./dist/index.umd.js",
+      "default": "./dist/index.umd.js"
+    },
+    "./dist/reset.css": "./dist/reset.css"
+  },
   "source": "src/index.ts",
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build",
+    "pkg-json": "node scripts/create-pkg-json.cjs",
+    "handle-version": "node scripts/handle-version.cjs",
+    "build": "tsc --project tsconfig.build.json && vite build && tsc && npm run pkg-json && cp ./README.md ./dist/README.md && cp ./LICENSE ./dist/LICENSE",
     "test": "ava",
     "lint": "eslint",
-    "check": "tsc --noEmit",
-    "pub": "npm run lint && npm run check && npm run build && np"
+    "pub": "npm run lint && npm test && npm run handle-version && npm run build && cd ./dist && npm publish"
   },
   "repository": {
     "type": "git",
@@ -25,6 +37,7 @@
     "typescript",
     "library"
   ],
+  "type": "module",
   "author": "@cmmdmx",
   "license": "ISC",
   "bugs": {
@@ -32,42 +45,38 @@
   },
   "homepage": "https://github.com/cmmdmx/palstek#readme",
   "devDependencies": {
-    "@parcel/packager-ts": "^2.4.1",
-    "@parcel/transformer-typescript-types": "^2.4.1",
-    "@types/react": "^17.0.44",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "ava": "^4.2.0",
-    "eslint": "^8.13.0",
+    "@types/react": "^18.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@vitejs/plugin-react": "^1.3.2",
+    "ava": "^4.3.0",
+    "eslint": "^8.18.0",
     "eslint-plugin-ava": "^13.2.0",
-    "eslint-plugin-react": "^7.29.4",
-    "np": "^7.6.1",
-    "parcel": "^2.4.1",
-    "parcel-reporter-static-files-copy": "^1.3.4",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.3"
+    "eslint-plugin-react": "^7.30.0",
+    "np": "^7.6.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.12"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
-    "node": ">= 12"
-  },
-  "dependencies": {
-    "@swc/helpers": "^0.3.8"
+    "node": ">= 14.13.1"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
-  },
-  "external": {
-    "@swc/helpers": "^0.3.8"
+    "react": "^17.0.2 || ^18.0.0"
   },
   "ava": {
-    "extensions": [
-      "ts"
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--experimental-specifier-resolution=node"
     ],
     "require": [
-      "ts-node/register"
+      "ts-node/register/transpile-only"
     ],
-    "ava/no-ignored-test-files": [
-      "error"
+    "files": [
+      "src/**/*.test.ts"
     ]
   },
   "staticFiles": {
