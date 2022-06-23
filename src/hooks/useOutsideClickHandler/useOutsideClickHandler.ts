@@ -7,19 +7,19 @@ import { useCallback, useEffect, useRef } from "react";
  * @param customListeners an optional list of event types ("click", "keypress", ...) to map the listener(s) to
  * @returns an object containing an elementRef which needs to be set to the dom element on which to detect the outside click
  */
-export const useOutsideClickHandler = (_onOutsideClick: (e: Event) => void = () => {}, condition?: boolean, customListeners?: (keyof DocumentEventMap)[]) => {
-    const elementRef = useRef<Element | null>(null);
+export const useOutsideClickHandler = <T extends Element>(_onOutsideClick: (e: Event, ref: EventTarget | null) => void = () => {}, condition?: boolean, customListeners?: (keyof DocumentEventMap)[]) => {
+    const elementRef = useRef<T | null>(null);
 
-    const onOutsideClick = useCallback((e: Event) => {
-        return _onOutsideClick(e);
+    const onOutsideClick = useCallback((e: Event, ref: EventTarget | null) => {
+        return _onOutsideClick(e, ref);
     }, [_onOutsideClick]);
 
     useEffect(() => {
         const handleClick = (e: Event) => {
-            const pth = (e as Event & { path: EventTarget[]}).path || e.composedPath && e.composedPath();
+            const pth = (e as Event & { path: Element[]}).path || e.composedPath && e.composedPath();
 
-            if(!pth.includes(elementRef.current as EventTarget))
-                onOutsideClick(e);
+            if(!pth.includes(elementRef.current as Element))
+                onOutsideClick(e, elementRef.current);
         };
 
         if(elementRef && elementRef.current && condition) {
