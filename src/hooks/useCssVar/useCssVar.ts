@@ -14,11 +14,13 @@ export const useCssVar = (name: string, value: CSSVarValue, target?: HTMLElement
     useEffect(() => {
         const trgt = target || document.body;
 
+        if(!value) return;
+
         if(!name || typeof name !== "string" || !name.startsWith("--"))
             throw new Error("Provide a vaild CSS Variable Name starting with '--'.");
 
         if(typeof value !== "string" || typeof value !== "number")
-            throw new Error("Value needs to be typeof string or number");
+            throw new Error(`Value needs to be typeof string or number; value is ${value}, typeof is ${typeof value}`);
 
         trgt?.style?.setProperty(`${name}`, `${value}`);
     }, [val, name, target]);
