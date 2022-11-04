@@ -31,6 +31,7 @@ ______     _     _       _
     - [usePrevious](#useprevious)
     - [useCssVar](#usecssvar)
     - [useOutsideClickHandler](#useoutsideclickhandler)
+    - [useLocalStorage](#uselocalstorage)
 - [Future Plans](#future-plans)
 - [Contribution](#contribution)
 - [Credits](#credits)
@@ -216,6 +217,20 @@ Parameters:
 
 Returns:
 1. elementRef: The ref of the element which has to be inside the `composedPath` of the click(?) event. It's just a passthrough of React.useRef and works identical. Default's `null`.
+
+### useLocalStorage
+
+A simple helper hook to access localStorage. Works like a useState hook. Listens to "storage" Event on window object.
+
+```tsx
+
+const initValue = 15;
+
+const [value, setValue] = useLocalStorage("myKey", initValue);
+
+// will store '15' at key 'myKey' in localStorage
+
+```
 
 # Future Plans
 

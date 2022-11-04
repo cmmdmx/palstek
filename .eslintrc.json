@@ -421,13 +421,7 @@
         ]
       }
     ],
-    "indent": [
-      2,
-      4,
-      {
-        "MemberExpression": "off"
-      }
-    ],
+    "indent": "off",
     "lines-around-comment": [
       2,
       {
@@ -645,6 +639,13 @@
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-explicit-any": [
       2
+    ],
+    "@typescript-eslint/indent": [
+      2,
+      4,
+      {
+        "MemberExpression": "off"
+      }
     ]
   },
   "overrides": [
