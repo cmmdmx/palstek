@@ -19,7 +19,7 @@ export const useCssVar = (name: string, value: CSSVarValue, target?: HTMLElement
         if(!name || typeof name !== "string" || !name.startsWith("--"))
             throw new Error("Provide a vaild CSS Variable Name starting with '--'.");
 
-        if(typeof value !== "string" || typeof value !== "number")
+        if(typeof value !== "string" && typeof value !== "number")
             throw new Error(`Value needs to be typeof string or number; value is ${value}, typeof is ${typeof value}`);
 
         trgt?.style?.setProperty(`${name}`, `${value}`);
