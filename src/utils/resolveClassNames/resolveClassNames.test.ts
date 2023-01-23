@@ -26,9 +26,14 @@ test("no class names", t => {
 });
 
 test("undefined", t => {
+    // eslint-disable-next-line no-undefined
     t.is(resolveClassNames(undefined, "hi"), "hi");
 });
 
 test("number", t => {
     t.is(resolveClassNames(1 as unknown as string, "hi"), "hi");
+});
+
+test("unnecessary whitespaces", t => {
+    t.is(resolveClassNames(1 as unknown as string, "hi   asdf  gu  "), "hi asdf gu");
 });

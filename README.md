@@ -25,6 +25,10 @@ ______     _     _       _
     - [filterProps](#filterprops)
     - [autoFilterProps](#autofilterprops)
     - [stringTransform](#stringtransform)
+    - [setToSession](#settosession)
+    - [getFromSession](#getfromsession)
+    - [setToLocal](#settolocal)
+    - [getFromLocal](#getfromlocal)
   - [static](#static)
     - [reset.css](#resetcss)
   - [hooks](#hooks)
@@ -32,6 +36,7 @@ ______     _     _       _
     - [useCssVar](#usecssvar)
     - [useOutsideClickHandler](#useoutsideclickhandler)
     - [useLocalStorage](#uselocalstorage)
+    - [useSessionStorage](#usesessionstorage)
 - [Future Plans](#future-plans)
 - [Contribution](#contribution)
 - [Credits](#credits)
@@ -136,6 +141,24 @@ Both functions `toCamelCase` and `toPascalCase` replace the characters `-`, `_`,
 
 ---
 
+### setToSession
+
+Lightweight wrapper for `sessionStorage.setItem()`, will perform a `JSON.stringify()` for the value.
+Might get upgraded with custom event in future.
+
+### getFromSession
+
+Lightweight wrapper for `sessionStorage.getItem()`, will perform a `JSON.parse()` for the value.
+
+### setToLocal
+
+Lightweight wrapper for `localStorage.setItem()`, will perform a `JSON.stringify()` for the value.
+Might get upgraded with custom event in future.
+
+### getFromLocal
+
+Lightweight wrapper for `localStorage.getItem()`, will perform a `JSON.parse()` for the value.
+
 
 ## static
 
@@ -220,7 +243,7 @@ Returns:
 
 ### useLocalStorage
 
-A simple helper hook to access localStorage. Works like a useState hook. Listens to "storage" Event on window object.
+A simple helper hook to access localStorage. Works like a useState hook. Listens to "storage" Event on window object, in case another tab/window accesses the same storage area (based on URL/domain).
 
 ```tsx
 
@@ -229,6 +252,20 @@ const initValue = 15;
 const [value, setValue] = useLocalStorage("myKey", initValue);
 
 // will store '15' at key 'myKey' in localStorage
+
+```
+
+### useSessionStorage
+
+A simple helper hook to access sessionStorage. Works like a useState hook.
+
+```tsx
+
+const initValue = 15;
+
+const [value, setValue] = useSessionStorage("myKey", initValue);
+
+// will store '15' at key 'myKey' in sessionStorage
 
 ```
 

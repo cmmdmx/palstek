@@ -8,7 +8,9 @@ const resolveClassNames = (...classNameArgs: Array<string | boolean | undefined 
     return [...classNameArgs]
       .flat(3)
       .filter(name => typeof name === "string" && name !== "undefined")
-      .join(" ");
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
 };
 
 export { resolveClassNames };

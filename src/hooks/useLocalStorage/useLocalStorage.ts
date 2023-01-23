@@ -27,7 +27,9 @@ export const useLocalStorage = <T = string, U = T | null>(key: string, value?: U
     }, []);
 
     useEffect(() => {
-        const handler = () => {
+        const handler = (e: StorageEvent) => {
+            if(e.key !== key || e.newValue === state) return 0;
+
             const fromLocal = getFromLocal<U>(key);
 
             if(fromLocal && fromLocal !== state) return setState(fromLocal);
