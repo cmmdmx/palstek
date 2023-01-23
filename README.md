@@ -47,6 +47,8 @@ ______     _     _       _
 
 Why "palstek"? - Because this is one of the most used knots on a sailboat. Just as useful, selected functions should be provided here. Especially designed as extension to functional react projects, react libraries and design systems.
 
+It's designed as zero-dependency; no other packages do come with `palstek`. If you want to use all features (especially the hooks), you need to have `react` package as peerDependency installed.
+
 ## Quick Start
 
 1. Install the package with `npm i palstek` into your project
