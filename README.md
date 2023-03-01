@@ -47,7 +47,7 @@ ______     _     _       _
 
 Why "palstek"? - Because this is one of the most used knots on a sailboat. Just as useful, selected functions should be provided here. Especially designed as extension to functional react projects, react libraries and design systems.
 
-It's designed as zero-dependency; no other packages do come with `palstek`. If you want to use all features (especially the hooks), you need to have `react` package as peerDependency installed.
+> It's designed as zero-dependency; no other packages do come with `palstek`. If you want to use all features (especially the hooks), you need to have `react` package as peerDependency installed.
 
 ## Quick Start
 
@@ -141,8 +141,6 @@ All functions support special characters (from languages like German or French).
 
 Both functions `toCamelCase` and `toPascalCase` replace the characters `-`, `_`, and whitespace by default, but you can pass your own Regexp as optional parameter to modify the function to also replace a `.` or a `,` for example.
 
----
-
 ### setToSession
 
 Lightweight wrapper for `sessionStorage.setItem()`, will perform a `JSON.stringify()` for the value.
@@ -161,6 +159,7 @@ Might get upgraded with custom event in future.
 
 Lightweight wrapper for `localStorage.getItem()`, will perform a `JSON.parse()` for the value.
 
+---
 
 ## static
 
