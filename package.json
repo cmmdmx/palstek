@@ -1,6 +1,6 @@
 {
   "name": "palstek",
-  "version": "0.10.9",
+  "version": "0.10.10",
   "description": "A bunch of useful extensions for react projects",
   "files": [
     "./dist/*"
