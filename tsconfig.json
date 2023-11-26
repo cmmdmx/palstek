@@ -15,7 +15,7 @@
       ],
       "module": "ESNext",
       "moduleResolution": "Node",
-      "outFile": "dist/types.d.ts",
+      "outDir": "dist",
       "resolveJsonModule": true,
       "skipLibCheck": false,
       "sourceMap": true,
