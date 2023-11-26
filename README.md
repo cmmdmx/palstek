@@ -39,6 +39,8 @@ ______     _     _       _
     - [useSessionStorage](#usesessionstorage)
 - [Future Plans](#future-plans)
 - [Contribution](#contribution)
+- [Issues \& Help](#issues--help)
+    - [`(...) palstek is not a module (ts2306)`](#-palstek-is-not-a-module-ts2306)
 - [Credits](#credits)
 
 ---
@@ -277,6 +279,12 @@ const [value, setValue] = useSessionStorage("myKey", initValue);
 # Contribution
 
 If you want to contribute, feel free to do so. Just create your own branch and submit a PR with the changes.
+
+# Issues & Help
+
+### `(...) palstek is not a module (ts2306)`
+
+There are inconsistencies when importing typings from node modules. This error should not occur if you use `moduleResolution: node` inside your tsconfig.
 
 # Credits
 

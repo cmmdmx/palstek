@@ -11,6 +11,7 @@ const defaultPkgJsonWhitelist = [
     "main",
     "module",
     "typings",
+    "types",
     "exports",
     "repository",
     "keywords",
