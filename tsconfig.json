@@ -15,7 +15,7 @@
       ],
       "module": "ESNext",
       "moduleResolution": "Node",
-      "outDir": "./dist",
+      "outFile": "./dist/index.d.ts",
       "resolveJsonModule": true,
       "skipLibCheck": false,
       "sourceMap": true,

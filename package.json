@@ -8,14 +8,17 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js",
       "browser": "./dist/index.umd.js",
-      "default": "./dist/index.umd.js"
+      "default": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
     },
-    "./dist/reset.css": "./dist/reset.css"
+    "./dist/reset.css": "./dist/reset.css",
+    "./dist/index.d.ts": "./dist/index.d.ts"
   },
   "source": "src/index.ts",
   "scripts": {
@@ -45,17 +48,17 @@
   },
   "homepage": "https://github.com/cmmdmx/palstek#readme",
   "devDependencies": {
-    "@types/react": "^18.2.33",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@vitejs/plugin-react": "^4.1.0",
+    "@types/react": "^18.2.38",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@vitejs/plugin-react": "^4.2.0",
     "ava": "^5.3.1",
-    "eslint": "^8.52.0",
+    "eslint": "^8.54.0",
     "eslint-plugin-ava": "^14.0.0",
     "eslint-plugin-react": "^7.33.2",
     "np": "^8.0.4",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0"
+    "typescript": "^5.3.2",
+    "vite": "^5.0.2"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
