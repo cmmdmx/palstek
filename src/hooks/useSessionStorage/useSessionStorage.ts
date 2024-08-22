@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
-
-
-export const getFromSession = <T = string>(key: string): T | null => {
-    const res = sessionStorage.getItem(`${key}`);
-
-    return res === null ? null : JSON.parse(res);
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const setToSession = <T = any>(key: string, value: T) => sessionStorage.setItem(`${key}`, JSON.stringify(value));
+import { getFromSession, setToSession } from "../../utils/sessionStorage";
 
 
 export const useSessionStorage = <T = string, U = T | null>(key: string, value?: U) => {
