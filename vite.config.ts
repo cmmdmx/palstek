@@ -17,7 +17,7 @@ export default defineConfig({
             entry:    path.resolve(__dirname, "src/index.ts"),
             name:     "palstek",
             formats:  ["es", "umd"],
-            fileName: format => `index.${format}.js`
+            fileName: format => `index.${format}.${format === "es" ? "mjs" : "js"}`
         },
         rollupOptions: {
             external: ["react"],
