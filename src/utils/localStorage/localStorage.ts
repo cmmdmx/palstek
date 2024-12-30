@@ -8,8 +8,7 @@ export const getFromLocal = <T = string>(key: string): T | null => {
 
     try {
         return JSON.parse(res);
-    }
-    catch {
+    } catch{
         return null;
     }
 };
@@ -19,12 +18,15 @@ export const setToLocal = <T = any>(key: string, value: T) => {
     const _locStor = localStorage || window.localStorage;
 
     try {
+        // eslint-disable-next-line no-undefined
         if(key && value !== undefined)
             return _locStor.setItem(`${key}`, JSON.stringify(value));
-    
+
         if(key) return _locStor.removeItem(key);
-    } catch {
+    } catch{
         return new Error(`Problem using 'setToLocal' with params ${key}, ${value}.`);
     }
+
+    return null;
 };
 

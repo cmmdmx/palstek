@@ -18,7 +18,8 @@ test("nested class names", t => {
 });
 
 test("conditional class names", t => {
-    t.is(resolveClassNames("hi", 1 > 2 && "ho"), "hi");
+    // eslint-disable-next-line no-constant-binary-expression
+    t.is(resolveClassNames("hi", (1 > 2) && "ho"), "hi");
 });
 
 test("no class names", t => {

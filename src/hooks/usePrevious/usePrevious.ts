@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
  * @returns {T | undefined}
  */
 export const usePrevious = <T>(value: T): T | undefined => {
+    // eslint-disable-next-line no-undefined
     const ref = useRef<T>(undefined);
 
     useEffect(() => {

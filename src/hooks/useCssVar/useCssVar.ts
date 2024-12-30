@@ -7,10 +7,11 @@ export type CSSVarValue = string | number;
  * @param {T} value
  * @returns An Array containing the value and a Setter.
  */
-// eslint-disable-next-line no-unused-vars
+
 export const useCssVar = (name: string, value: CSSVarValue, target?: React.RefObject<HTMLElement>): [CSSVarValue, (val: CSSVarValue) => void] => {
     const [val, setVal] = useState<CSSVarValue>(value);
 
+    // eslint-disable-next-line complexity
     useLayoutEffect(() => {
         const trgt = target?.current || document.body;
 

@@ -8,8 +8,7 @@ export const getFromSession = <T = string>(key: string): T | null => {
 
     try {
         return JSON.parse(res);
-    }
-    catch {
+    } catch{
         return null;
     }
 };
@@ -19,12 +18,15 @@ export const setToSession = <T = any>(key: string, value: T) => {
     const _sesStor = sessionStorage || window.sessionStorage;
 
     try {
+        // eslint-disable-next-line no-undefined
         if(key && value !== undefined)
             return _sesStor.setItem(`${key}`, JSON.stringify(value));
-    
+
         if(key) return _sesStor.removeItem(key);
-    } catch {
+    } catch{
         return new Error(`Problem using 'setToLocal' with params ${key}, ${value}.`);
     }
+
+    return null;
 };
 
