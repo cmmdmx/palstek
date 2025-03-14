@@ -24,7 +24,7 @@
     "pkg-json": "node scripts/create-pkg-json.cjs",
     "handle-version": "node scripts/handle-version.cjs",
     "build": "tsc --project tsconfig.build.json && vite build && tsc && npm run pkg-json && cp ./README.md ./dist/README.md && cp ./LICENSE ./dist/LICENSE",
-    "test": "NODE_OPTIONS='--loader=ts-node/esm' ava",
+    "test": "ava",
     "lint": "npx eslint src/",
     "pub": "npm run lint && npm test && npm run handle-version && npm run build && cd ./dist && npm publish"
   },
