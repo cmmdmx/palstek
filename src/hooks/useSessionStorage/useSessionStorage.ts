@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getFromSession, setToSession } from "../../utils/sessionStorage";
 
 
-export const useSessionStorage = <T = string, U = T | null>(key: string, value?: U) => {
+export const useSessionStorage = <T = string, U = T | null>(key: string, value?: U): [U | undefined, (x: U) => void] => {
     const [state, setState] = useState<U | undefined>(value);
 
     useEffect(() => {

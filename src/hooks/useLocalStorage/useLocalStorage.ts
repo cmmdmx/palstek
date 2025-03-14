@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getFromLocal, setToLocal } from "../../utils/localStorage";
 
 
-export const useLocalStorage = <T = string, U = T | null>(key: string, value?: U) => {
+export const useLocalStorage = <T = string, U = T | null>(key: string, value?: U): [U | undefined, (x: U) => void] => {
     const [state, setState] = useState<U | undefined>(value);
 
     useEffect(() => {
