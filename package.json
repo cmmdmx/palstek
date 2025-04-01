@@ -48,11 +48,11 @@
   "homepage": "https://github.com/cmmdmx/palstek#readme",
   "devDependencies": {
     "@eslint/compat": "^1.2.7",
-    "@eslint/eslintrc": "^3.3.0",
-    "@eslint/js": "^9.22.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.23.0",
     "@types/prop-types": "^15.7.14",
-    "@types/react": "^19.0.10",
-    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@types/react": "^19.0.12",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@vitejs/plugin-react": "^4.3.4",
     "ava": "^6.2.0",
     "eslint": "^9",
@@ -62,14 +62,14 @@
     "np": "^10.2.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
-    "vite": "^6.2.2"
+    "vite": "^6.2.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
     "node": ">= 14.13.1"
   },
   "peerDependencies": {
-    "react": "^17.0.2 || ^18.0.0 || >19.0.0"
+    "react": "^17.0.2 || ^18.0.0 || ^19.0.0"
   },
   "ava": {
     "extensions": {
