@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessionstorage Demo</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" type="module" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" type="module" crossorigin></script>
+    <script src="../dist/index.umd.js" type="module" crossorigin></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="module">
+        console.log(window.palstek)
+
+        const { createElement, useState } = React;
+        const { createRoot } = ReactDOM;
+        const useSessionStorage = window.palstek.useSessionStorage;
+
+        function App() {
+            const [message, setMessage] = useState('Click a button');
+
+            const [test, setTest] = useSessionStorage("test-key");
+
+            return createElement(
+                'div',
+                null,
+                createElement('button', { onClick: () => setTest("hi") }, 'Set'),
+                createElement('button', { onClick: () => setTest(null) }, 'Reset'),
+                createElement('fieldset', null, createElement('legend', null, 'Output'), createElement('p', null, test))
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(createElement(App));
+    </script>
+</body>
+</html>

@@ -3,27 +3,17 @@ import { getFromLocal, setToLocal } from "../../utils/localStorage";
 
 
 export const useLocalStorage = <T = string, U = T | null>(key: string, value?: U): [U | undefined, (x: U) => void] => {
-    const [state, setState] = useState<U | undefined>(value);
-
-    useEffect(() => {
-        if(state !== getFromLocal<U>(key))
-            setToLocal(key, state);
-    }, [state, key]);
-
-    useEffect(() => {
-        const initValue = getFromLocal<U>(key);
-
-        if(initValue)
-            setState(initValue);
-    }, []);
+    // eslint-disable-next-line no-undefined
+    const [state, setState] = useState<U | undefined>(value !== undefined ? value : getFromLocal<U>(key) as U);
 
     useEffect(() => {
         const handler = (e: StorageEvent) => {
-            if(e.key !== key || e.newValue === state) return 0;
+            if(e.key !== key) return 0;
 
             const fromLocal = getFromLocal<U>(key);
 
-            if(fromLocal && fromLocal !== state) return setState(fromLocal);
+            // eslint-disable-next-line no-undefined
+            if(fromLocal !== undefined) return setState(fromLocal as U);
 
             return 0;
         };
@@ -33,5 +23,10 @@ export const useLocalStorage = <T = string, U = T | null>(key: string, value?: U
         return () => window.removeEventListener("storage", handler);
     }, []);
 
-    return [state, setState];
+    const handleSet = (val: U) => {
+        if(val !== state)
+            setToLocal(key, val);
+    };
+
+    return [state, handleSet];
 };

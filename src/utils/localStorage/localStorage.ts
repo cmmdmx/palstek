@@ -19,8 +19,17 @@ export const setToLocal = <T = any>(key: string, value: T) => {
 
     try {
         // eslint-disable-next-line no-undefined
-        if(key && value !== undefined)
-            return _locStor.setItem(`${key}`, JSON.stringify(value));
+        if(key && value !== undefined) {
+            const prev = _locStor.getItem(key);
+
+            _locStor.setItem(`${key}`, JSON.stringify(value));
+
+            return dispatchEvent(new StorageEvent("storage", {
+                key,
+                oldValue: prev,
+                newValue: value as string | null
+            }));
+        }
 
         if(key) return _locStor.removeItem(key);
     } catch{
